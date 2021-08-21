@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="WhatWillYouNameYourFirm.1" xml:space="preserve">
+        <value>Taipan,</value>
+    </data>
+    <data name="WhatWillYouNameYourFirm.2" xml:space="preserve">
+        <value>What will you name your Firm:</value>
+    </data>
+    <data name="CashOrGuns" xml:space="preserve">
+        <value>
+         Do you want to start . . .
+         1) With cash (and a debt)
+             &gt;&gt; or &lt;&lt;
+         2) With five guns and no cash
+             (But no debt!)
+        </value>
+    </data>
+    <data name="Item.Opium" xml:space="preserve">
+        <value>Opium</value>
+    </data>
+    <data name="Item.Silk" xml:space="preserve">
+        <value>Silk</value>
+    </data>
+    <data name="Item.Arms" xml:space="preserve">
+        <value>Arms</value>
+    </data>
+    <data name="Item.General" xml:space="preserve">
+        <value>General Cargo</value>
+    </data>
+    <data name="Item.Everything" xml:space="preserve">
+        <value>Everything</value>
+    </data>
+    <data name="Location.AtSea" xml:space="preserve">
+        <value>At sea</value>
+    </data>
+    <data name="Location.HongKong" xml:space="preserve">
+        <value>Hong Kong</value>
+    </data>
+    <data name="Location.Shanghai" xml:space="preserve">
+        <value>Shanghai</value>
+    </data>
+    <data name="Location.Nagasaki" xml:space="preserve">
+        <value>Nagasaki</value>
+    </data>
+    <data name="Location.Saigon" xml:space="preserve">
+        <value>Saigon</value>
+    </data>
+    <data name="Location.Manila" xml:space="preserve">
+        <value>Manila</value>
+    </data>
+    <data name="Location.Singapore" xml:space="preserve">
+        <value>Singapore</value>
+    </data>
+    <data name="Location.Batavia" xml:space="preserve">
+        <value>Batavia</value>
+    </data>
+    <data name="Months.1" xml:space="preserve">
+        <value>Jan</value>
+    </data>
+    <data name="Months.2" xml:space="preserve">
+        <value>Feb</value>
+    </data>
+    <data name="Months.3" xml:space="preserve">
+        <value>Mar</value>
+    </data>
+    <data name="Months.4" xml:space="preserve">
+        <value>Apr</value>
+    </data>
+    <data name="Months.5" xml:space="preserve">
+        <value>May</value>
+    </data>
+    <data name="Months.6" xml:space="preserve">
+        <value>Jun</value>
+    </data>
+    <data name="Months.7" xml:space="preserve">
+        <value>Jul</value>
+    </data>
+    <data name="Months.8" xml:space="preserve">
+        <value>Aug</value>
+    </data>
+    <data name="Months.9" xml:space="preserve">
+        <value>Sep</value>
+    </data>
+    <data name="Months.10" xml:space="preserve">
+        <value>Oct</value>
+    </data>
+    <data name="Months.11" xml:space="preserve">
+        <value>Nov</value>
+    </data>
+    <data name="Months.12" xml:space="preserve">
+        <value>Dec</value>
+    </data>
+    <data name="Status.Critical" xml:space="preserve">
+        <value>Critical</value>
+    </data>
+    <data name="Status.Poor" xml:space="preserve">
+        <value>Poor</value>
+    </data>
+    <data name="Status.Fair" xml:space="preserve">
+        <value>Fair</value>
+    </data>
+    <data name="Status.Good" xml:space="preserve">
+        <value>Good</value>
+    </data>
+    <data name="Status.Prime" xml:space="preserve">
+        <value>Prime</value>
+    </data>
+    <data name="Status.Perfect" xml:space="preserve">
+        <value>Perfect</value>
+    </data>
+    <data name="CompradorsReport" xml:space="preserve">
+        <value>Comprador's Report</value>
+    </data>
+    <data name="YouGotRobbed" xml:space="preserve">
+        <value>Bad Joss!! You've been beaten up and robbed of {0} in cash, Taipan!!</value>
+    </data>
+    <data name="LiYuenHasSentALieutenant" xml:space="preserve">
+        <value>Li Yuen has sent a Lieutenant, Taipan.  He says his admiral wishes to see you in Hong Kong, posthaste!</value>
+    </data>
+    <data name="LargeTheftFromWarehouse" xml:space="preserve">
+        <value>Messenger reports large theft from warehouse, Taipan.</value>
+    </data>
+    <data name="AuthoritiesSeizedYourOpium" xml:space="preserve">
+        <value>Bad Joss!! The local authorities have seized your Opium cargo and have also fined you {0}, Taipan!</value>
+    </data>
+    <data name="YouOnlyHaveXInTheBank" xml:space="preserve">
+        <value>Taipan, you only have {0} in the bank.</value>
+    </data>
+    <data name="HowMuchToWithdraw" xml:space="preserve">
+        <value>How much will you withdraw?</value>
+    </data>
+    <data name="YouHaveNoCargo" xml:space="preserve">
+        <value>You have no cargo, Taipan.</value>
+    </data>
+    <data name="HowMuchToMove" xml:space="preserve">
+        <value>How much {0} shall I move to the warehouse, Taipan?</value>
+    </data>
+    <data name="WarehouseIsFull" xml:space="preserve">
+        <value>Your warehouse is full, Taipan!</value>
+    </data>
+    <data name="WarehouseWillOnlyHoldX" xml:space="preserve">
+        <value>Your warehouse will only hold an additional {0}, Taipan!</value>
+    </data>
+    <data name="YouHaveOnlyX" xml:space="preserve">
+        <value>You have only {0}, Taipan.</value>
+    </data>
+    <data name="HowMuchToMoveAboard" xml:space="preserve">
+        <value>How much {0} shall I move aboard ship, Taipan?</value>
+    </data>
+    <data name="WhereToGo" xml:space="preserve">
+        <value>Taipan, do you wish me to go to: 1) Hong Kong, 2) Shanghai, 3) Nagasaki, 4) Saigon, 5) Manila, 6) Singapore, or 7) Batavia ?</value>
+    </data>
+    <data name="YouAreAlreadyHere" xml:space="preserve">
+        <value>You're already here, Taipan.</value>
+    </data>
+    <data name="McHenryHasArrived" xml:space="preserve">
+        <value>Taipan, Mc Henry from the Hong Kong Shipyards has arrived!!  He says, "I see ye've a wee bit of damage to yer ship. Will ye be wanting repairs?</value>
+    </data>
+    <data name="HowMuchWillYeSpend" xml:space="preserve">
+        <value>Och, 'tis a pity to be {0}% damaged. We can fix yer whole ship for {0}, or make partial repairs if you wish. How much will ye spend?</value>
+    </data>
+    <data name="CaptainsReport" xml:space="preserve">
+        <value>Captain's Report</value>
+    </data>
+    <data name="HostileShipsApproaching" xml:space="preserve">
+        <value>{0} hostile ships approaching, Taipan!</value>
+    </data>
+    <data name="ElderBrotherWuSpiel.1" xml:space="preserve">
+        <value>Elder Brother Wu has sent {0} braves to escort you to the Wu mansion, Taipan.</value>
+    </data>
+    <data name="ElderBrotherWuSpiel.2" xml:space="preserve">
+        <value>Elder Brother Wu reminds you of the Confucian ideal of personal worthiness, and how this applies to paying one's debts.</value>
+    </data>
+    <data name="ElderBrotherWuSpiel.3" xml:space="preserve">
+        <value>He is reminded of a fabled barbarian who came to a bad end, after not caring for his obligations. He hopes no such fate awaits you, his friend, Taipan.</value>
+    </data>
+    <data name="ElderBrotherIsAwareOfYourPlight" xml:space="preserve">
+        <value>Elder Brother is aware of your plight, Taipan. He is willing to loan you an additional {0} if you will pay back {1}. Are you willing, Taipan?</value>
+    </data>
+    <data name="HowMuchToRepay" xml:space="preserve">
+        <value>How much do you wish to repay him?</value>
+    </data>
+    <data name="HowMuchToBorrow" xml:space="preserve">
+        <value>How much do you wish to borrow?</value>
+    </data>
+    <data name="LiYuensFleetDroveThemOff" xml:space="preserve">
+        <value>Li Yuen's fleet drove them off!</value>
+    </data>
+    <data name="LiYuensPirates" xml:space="preserve">
+        <value>Li Yuen's pirates, Taipan!!</value>
+    </data>
+    <data name="GoodJossTheyLetUsBe" xml:space="preserve">
+        <value>Good joss!! They let us be!!</value>
+    </data>
+    <data name="XShipsOfLiYuensPirateFleet" xml:space="preserve">
+        <value>{0} ships of Li Yuen's pirate fleet, Taipan!!</value>
+    </data>
+    <data name="WeCapturedSomeBooty" xml:space="preserve">
+        <value>We captured some booty. It's worth {0}!</value>
+    </data>
+    <data name="DoYouWishToBuyAGun" xml:space="preserve">
+        <value>Do you wish to buy a ship's gun for {0}, Taipan? </value>
+    </data>
+    <data name="Orders.Fight" xml:space="preserve">
+        <value>Fight</value>
+    </data>
+    <data name="Orders.Run" xml:space="preserve">
+        <value>Run</value>
+    </data>
+    <data name="Orders.ThrowCargo" xml:space="preserve">
+        <value>Throw Cargo</value>
+    </data>
+    <data name="ShipsAttacking.One" xml:space="preserve">
+        <value>{0} ship attacking, Taipan!</value>
+    </data>
+    <data name="ShipsAttacking.Other" xml:space="preserve">
+        <value>{0} ships attacking, Taipan!</value>
+    </data>
+    <data name="VeryWellGameOver" xml:space="preserve">
+        <value>Very well, Taipan, the game is over!</value>
+    </data>
+    <data name="VeryWellGoodJoss" xml:space="preserve">
+        <value>Very well, Taipan. Good joss!!</value>
+    </data>
+    <data name="MidMonthDateFormat" xml:space="preserve">
+        <value>15 {0} {1}</value>
+    </data>
+    <data name="ShallIBuySellVisitBankTransferCargoQuitTradingOrRetire" xml:space="preserve">
+        <value>Shall I Buy, Sell, Visit bank, Transfer cargo, Quit trading, or Retire? </value>
+    </data>
+    <data name="ShallIBuySellVisitBankTransferCargoOrQuitTrading" xml:space="preserve">
+        <value>Shall I Buy, Sell, Visit bank, Transfer cargo, or Quit trading? </value>
+    </data>
+    <data name="ShallIBuySellOrQuitTrading" xml:space="preserve">
+        <value>Shall I Buy, Sell, or Quit trading? </value>
+    </data>
+    <data name="LiYuenAsksXInDonation" xml:space="preserve">
+        <value>Li Yuen asks {0} in donation to the temple of Tin Hau, the Sea Goddess.  Will you pay?</value>
+    </data>
+    <data name="YouDoNotHaveEnoughCash" xml:space="preserve">
+        <value>Taipan, you do not have enough cash!!</value>
+    </data>
+    <data name="DoYouWantElderBrotherWuToMakeUpTheDifference" xml:space="preserve">
+        <value>Do you want Elder Brother Wu to make up the difference for you?</value>
+    </data>
+    <data name="ElderBrotherHasGivenLiYuenTheDifference" xml:space="preserve">
+        <value>Elder Brother has given Li Yuen the difference between what he wanted and your cash on hand and added the same amount to your debt.</value>
+    </data>
+    <data name="ElderBrotherWuWillNotPayLiYuenTheDifference" xml:space="preserve">
+        <value>Very well. Elder Brother Wu will not pay Li Yuen the difference.  I would be very wary of pirates if I were you, Taipan.</value>
+    </data>
+    <data name="DoYouHaveBusinessWithElderBrotherWu" xml:space="preserve">
+        <value>Do you have business with Elder Brother Wu, the moneylender?</value>
+    </data>
+    <data name="HeWontLoanYouSoMuch" xml:space="preserve">
+        <value>He won't loan you so much, Taipan!</value>
+    </data>
+    <data name="BadJossYouHaveBeenRobbed" xml:space="preserve">
+        <value>Bad joss!! {0} of your bodyguards have been killed by cutthroats and you have been robbed of all of your cash, Taipan!!
+</value>
+    </data>
+    <data name="YourShipIsOverloaded" xml:space="preserve">
+        <value>Your ship is overloaded, Taipan!!</value>
+    </data>
+    <data name="DoYouWishToTradeInYourShip.Damaged" xml:space="preserve">
+        <value>Do you wish to trade in your damaged ship for one with 50 more capacity by paying an additional {0}, Taipan? </value>
+    </data>
+    <data name="DoYouWishToTradeInYourShip.Fine" xml:space="preserve">
+        <value>Do you wish to trade in your fine ship for one with 50 more capacity by paying an additional {0}, Taipan? </value>
+    </data>
+    <data name="CurrentSeaworthiness" xml:space="preserve">
+        <value>Current seaworthiness: {0} ({1}%)</value>
+    </data>
+    <data name="WhatShallWeDo" xml:space="preserve">
+        <value>Taipan, what shall we do??    (f=fight, r=run, t=throw cargo)</value>
+    </data>
+    <data name="WellFightEm" xml:space="preserve">
+        <value>Aye, we'll fight 'em, Taipan.</value>
+    </data>
+    <data name="WereFiringOnThem" xml:space="preserve">
+        <value>We're firing on 'em, Taipan!</value>
+    </data>
+    <data name="SunkXOfTheBuggers" xml:space="preserve">
+        <value>Sunk {0} of the buggers, Taipan!</value>
+    </data>
+    <data name="HitEmButDidntSinkEm" xml:space="preserve">
+        <value>Hit 'em, but didn't sink 'em, Taipan!</value>
+    </data>
+    <data name="XRanAway" xml:space="preserve">
+        <value>{0} ran away, Taipan!</value>
+    </data>
+    <data name="WeHaveNoGuns" xml:space="preserve">
+        <value>We have no guns, Taipan!!</value>
+    </data>
+    <data name="YouHaveTheFollowingOnBoard" xml:space="preserve">
+        <value>You have the following on board, Taipan:
+Opium: {0}
+Silk: {1}
+Arms: {2}
+General: {3}
+</value>
+    </data>
+    <data name="WhatShallIThrowOverboard" xml:space="preserve">
+        <value>What shall I throw overboard, Taipan? </value>
+    </data>
+    <data name="HowMuch" xml:space="preserve">
+        <value>How much, Taipan? </value>
+    </data>
+    <data name="LetsHopeWeLoseEm" xml:space="preserve">
+        <value>Let's hope we lose 'em, Taipan!</value>
+    </data>
+    <data name="TheresNothingThere" xml:space="preserve">
+        <value>There's nothing there, Taipan!</value>
+    </data>
+    <data name="WellRun" xml:space="preserve">
+        <value>Aye, we'll run, Taipan.</value>
+    </data>
+    <data name="WeGotAwayFromEm" xml:space="preserve">
+        <value>We got away from 'em, Taipan!</value>
+    </data>
+    <data name="CouldntLoseEm" xml:space="preserve">
+        <value>Couldn't lose 'em.</value>
+    </data>
+    <data name="ButWeEscapedFromXOfEm" xml:space="preserve">
+        <value>But we escaped from {0} of 'em!</value>
+    </data>
+    <data name="TheyreFiringOnUs" xml:space="preserve">
+        <value>They're firing on us, Taipan!</value>
+    </data>
+    <data name="WeveBeenHit" xml:space="preserve">
+        <value>We've been hit, Taipan!!</value>
+    </data>
+    <data name="TheBuggersHitAGun" xml:space="preserve">
+        <value>The buggers hit a gun, Taipan!!</value>
+    </data>
+    <data name="WeGotEmAll" xml:space="preserve">
+        <value>We got 'em all, Taipan!</value>
+    </data>
+    <data name="YourOrdersAreTo" xml:space="preserve">
+        <value>Your orders are to: {0}</value>
+    </data>
+    <data name="HowMuchWillYouDeposit" xml:space="preserve">
+        <value>How much will you deposit? </value>
+    </data>
+    <data name="YouOnlyHaveXInCash" xml:space="preserve">
+        <value>Taipan, you only have {0} in cash.</value>
+    </data>
+    <data name="WeMadeIt" xml:space="preserve">
+        <value>We made it!</value>
+    </data>
+    <data name="TheBuggersGotUs" xml:space="preserve">
+        <value>The buggers got us, Taipan!!!
+It's all over, now!!!</value>
+    </data>
+    <data name="Storm" xml:space="preserve">
+        <value>Storm, Taipan!!
+
+</value>
+    </data>
+    <data name="IThinkWereGoingDown" xml:space="preserve">
+        <value>   I think we're going down!!
+
+</value>
+    </data>
+    <data name="WereGoingDown" xml:space="preserve">
+        <value>We're going down, Taipan!!
+</value>
+    </data>
+    <data name="WeMadeIt2" xml:space="preserve">
+        <value>    We made it!!
+
+</value>
+    </data>
+    <data name="WeveBeenBlownOffCourseTo" xml:space="preserve">
+        <value>We've been blown off course to {0}</value>
+    </data>
+    <data name="ArrivingAt" xml:space="preserve">
+        <value>Arriving at {0}...</value>
+    </data>
+    <data name="WhatDoYouWishMeToBuy" xml:space="preserve">
+        <value>What do you wish me to buy, Taipan?</value>
+    </data>
+    <data name="YouCanAffordX" xml:space="preserve">
+        <value>You can afford {0}</value>
+    </data>
+    <data name="HowMuchXShallIBuy" xml:space="preserve">
+        <value>How much {0} shall I buy, Taipan: </value>
+    </data>
+    <data name="ThePriceOfX" xml:space="preserve">
+        <value>Taipan!!  The price of {0}</value>
+    </data>
+    <data name="HasDroppedToX" xml:space="preserve">
+        <value>has dropped to {0}!!</value>
+    </data>
+    <data name="HasRisenToX" xml:space="preserve">
+        <value>has risen to {0}!!</value>
+    </data>
+    <data name="PortActivity_Buy" xml:space="preserve">
+        <value>Buy</value>
+    </data>
+    <data name="PortActivity_Sell" xml:space="preserve">
+        <value>Sell</value>
+    </data>
+    <data name="PortActivity_VisitBank" xml:space="preserve">
+        <value>Visit Bank</value>
+    </data>
+    <data name="PortActivity_TransferCargo" xml:space="preserve">
+        <value>Transfer Cargo</value>
+    </data>
+    <data name="PortActivity_QuitTrading" xml:space="preserve">
+        <value>Quit Trading</value>
+    </data>
+    <data name="PortActivity_Retire" xml:space="preserve">
+        <value>Retire</value>
+    </data>
+    <data name="Rating_MaTsu" xml:space="preserve">
+        <value>Ma Tsu</value>
+    </data>
+    <data name="Rating_MasterTaipan" xml:space="preserve">
+        <value>Master Taipan</value>
+    </data>
+    <data name="Rating_Taipan" xml:space="preserve">
+        <value>Taipan</value>
+    </data>
+    <data name="Rating_Compradore" xml:space="preserve">
+        <value>Compradore</value>
+    </data>
+    <data name="Rating_GalleyHand" xml:space="preserve">
+        <value>Galley Hand</value>
+    </data>
+</root>
