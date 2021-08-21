@@ -14,6 +14,13 @@ There are many potential improvements to be made still.
 Pull requests welcome!
 
 
+Credits
+-------
+
+* Original Concept: Art Canfil
+* Apple ][ port: Ronald J. Berg
+* Browser and C ports: Jay Link
+
 
 Prior versions
 --------------
