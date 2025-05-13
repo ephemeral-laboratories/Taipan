@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Source.Model
 {
@@ -22,31 +23,20 @@ namespace Source.Model
             Row = row;
         }
 
-        public static List<LorchaPosition> All => new List<LorchaPosition>
-        {
-            new LorchaPosition(0, 0),
-            new LorchaPosition(0, 1),
-            new LorchaPosition(0, 2),
-            new LorchaPosition(0, 3),
-            new LorchaPosition(0, 4),
-            new LorchaPosition(1, 0),
-            new LorchaPosition(1, 1),
-            new LorchaPosition(1, 2),
-            new LorchaPosition(1, 3),
-            new LorchaPosition(1, 4)
-        };
+        public static readonly List<LorchaPosition> All =
+        [
+            new(0, 0),
+            new(0, 1),
+            new(0, 2),
+            new(0, 3),
+            new(0, 4),
+            new(1, 0),
+            new(1, 1),
+            new(1, 2),
+            new(1, 3),
+            new(1, 4)
+        ];
 
-        public static IEnumerable<LorchaPosition> AllBackwards => All.FastReverse();
-    }
-
-    internal static class ListExtensions
-    {
-        public static IEnumerable<T> FastReverse<T>(this IList<T> items)
-        {
-            for (var i = items.Count - 1; i >= 0; i--)
-            {
-                yield return items[i];
-            }
-        }
+        public static readonly List<LorchaPosition> AllBackwards = Enumerable.Reverse(All).ToList();
     }
 }

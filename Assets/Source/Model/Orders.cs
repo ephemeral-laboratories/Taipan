@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Source.Model
 {
@@ -11,16 +12,15 @@ namespace Source.Model
     
     public static class OrdersExtensions
     {
-        private static readonly Dictionary<Orders, string> Names = new Dictionary<Orders, string>
+        public static string LocalizedName(this Orders orders)
         {
-            {Orders.Fight, Strings.Orders_Fight},
-            {Orders.Run, Strings.Orders_Run},
-            {Orders.ThrowCargo, Strings.Orders_ThrowCargo},
-        };
-
-        public static string LocalizedName(this Orders port)
-        {
-            return Names[port];
+            return orders switch
+            {
+                Orders.Fight => Strings.Orders_Fight,
+                Orders.Run => Strings.Orders_Run,
+                Orders.ThrowCargo => Strings.Orders_ThrowCargo,
+                _ => throw new ArgumentOutOfRangeException(nameof(orders), orders, null)
+            };
         }
     }
 }

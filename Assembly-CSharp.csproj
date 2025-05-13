@@ -82,7 +82,7 @@
     <Compile Include="Assets\Source\Model\PortArrivalEvents\ElderBrotherWuDealEvent.cs" />
     <Compile Include="Assets\Source\Model\PortArrivalEvents\ElderBrotherWuDebtCollectionEvent.cs" />
     <Compile Include="Assets\Source\Model\PortArrivalEvents\GoodPricesEvent.cs" />
-    <Compile Include="Assets\Source\Model\PortArrivalEvents\IPortArrivalEvent.cs" />
+    <Compile Include="Assets\Source\Model\PortArrivalEvents\BasePortArrivalEvent.cs" />
     <Compile Include="Assets\Source\Model\PortArrivalEvents\LiYuenExtortionEvent.cs" />
     <Compile Include="Assets\Source\Model\PortArrivalEvents\LiYuenHasSentLieutenantEvent.cs" />
     <Compile Include="Assets\Source\Model\PortArrivalEvents\LiYuensTrustEvent.cs" />

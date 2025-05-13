@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using Source.Model.PortActions;
-using Source.Model.PortArrivalEvents;
+﻿using System.Collections.Generic;
 using Random = System.Random;
-using Source.View;
-using UnityEngine;
 
 namespace Source.Model
 {
     public class GameState
     {
-        public Random Random { get; } = new Random();
+        public bool RunGameLoop = true;
+        
+        public Random Random { get; } = new();
 
         public string FirmName { get; set; }
 

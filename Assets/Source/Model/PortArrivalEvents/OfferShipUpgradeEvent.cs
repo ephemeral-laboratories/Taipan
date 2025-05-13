@@ -2,12 +2,12 @@
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class OfferShipUpgradeEvent: IPortArrivalEvent
+    public class OfferShipUpgradeEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
-        {
-            if (state.Random.Next(4) != 0) return;
+        protected override bool ShouldRun(GameState state) => state.Random.Next(4) == 0;
 
+        protected override void Run(GameState state, IView view)
+        {
             if (state.Random.Next(2) == 0)
             {
                 NewShip(state, view);

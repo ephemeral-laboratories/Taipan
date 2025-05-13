@@ -7,6 +7,7 @@ namespace Source.Model.PortActions
         public void Run(GameState state, IView view)
         {
             view.ShowRetirement();
+            state.RunGameLoop = false;
         }
     }
 }

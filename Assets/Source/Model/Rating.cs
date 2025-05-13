@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Source.Model
 {
@@ -15,20 +16,19 @@ namespace Source.Model
 
     public static class RatingExtensions
     {
-        private static readonly Dictionary<Rating, string> Names = new Dictionary<Rating, string>
-        {
-            {Rating.MaTsu, Strings.Rating_MaTsu},
-            {Rating.MasterTaipan, Strings.Rating_MasterTaipan},
-            {Rating.Taipan, Strings.Rating_Taipan},
-            {Rating.Compradore, Strings.Rating_Compradore},
-            {Rating.GalleyHand, Strings.Rating_GalleyHand},
-            {Rating.Worse, ""},
-            {Rating.Worst, ""}
-        };
-
         public static string LocalizedName(this Rating rating)
         {
-            return Names[rating];
+            return rating switch
+            {
+                Rating.MaTsu => Strings.Rating_MaTsu,  
+                Rating.MasterTaipan => Strings.Rating_MasterTaipan,
+                Rating.Taipan => Strings.Rating_Taipan,
+                Rating.Compradore => Strings.Rating_Compradore,
+                Rating.GalleyHand => Strings.Rating_GalleyHand,
+                Rating.Worse => "",
+                Rating.Worst => "",
+                _ => throw new ArgumentOutOfRangeException(nameof(rating), rating, null)
+            };
         }
 
         public static Rating ForFinalCash(Money amount)

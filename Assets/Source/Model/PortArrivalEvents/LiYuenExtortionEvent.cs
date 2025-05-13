@@ -2,12 +2,13 @@
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class LiYuenExtortionEvent: IPortArrivalEvent
+    public class LiYuenExtortionEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
+        protected override bool ShouldRun(GameState state) =>
+            state.Ship.Port == Port.HongKong && state.LiYuensTrust == 0 && state.Cash > 0;
+
+        protected override void Run(GameState state, IView view)
         {
-            if (state.Ship.Port != Port.HongKong || state.LiYuensTrust != 0 || state.Cash <= 0) return;
-            
             var time = state.Calendar.MonthsSinceStart;
 
             var i = 1.8;

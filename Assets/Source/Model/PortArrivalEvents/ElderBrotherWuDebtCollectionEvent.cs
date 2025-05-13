@@ -2,12 +2,13 @@
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class ElderBrotherWuDebtCollectionEvent: IPortArrivalEvent
+    public class ElderBrotherWuDebtCollectionEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
-        {
-            if (state.Ship.Port != Port.HongKong || state.Debt < 10000 || state.BrotherWuWarning) return;
+        protected override bool ShouldRun(GameState state) =>
+            state.Ship.Port == Port.HongKong && state.Debt >= 10000 && !state.BrotherWuWarning;
 
+        protected override void Run(GameState state, IView view)
+        {
             var braves = state.Random.Next(100) + 50;
 
             view.ShowDetail(string.Format(Strings.ElderBrotherWuSpiel_1, braves));

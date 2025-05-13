@@ -1,4 +1,6 @@
-﻿namespace Source.Model
+﻿using System.ComponentModel;
+
+namespace Source.Model
 {
     public class InitialState
     {

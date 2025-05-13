@@ -2,12 +2,12 @@
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class ElderBrotherWuDealEvent: IPortArrivalEvent
+    public class ElderBrotherWuDealEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
-        {
-            if (state.Ship.Port != Port.HongKong) return;
+        protected override bool ShouldRun(GameState state) => state.Ship.Port == Port.HongKong;
 
+        protected override void Run(GameState state, IView view)
+        {
             view.ShowTitle(Strings.CompradorsReport);
             view.ShowDetail(Strings.DoYouHaveBusinessWithElderBrotherWu);
 

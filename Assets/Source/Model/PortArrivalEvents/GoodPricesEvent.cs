@@ -2,12 +2,12 @@
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class GoodPricesEvent: IPortArrivalEvent
+    public class GoodPricesEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
-        {
-            if (state.Random.Next(9) != 0) return;
+        protected override bool ShouldRun(GameState state) => state.Random.Next(9) == 0;
 
+        protected override void Run(GameState state, IView view)
+        {
             var type = (CargoType)state.Random.Next(4);
             var direction = state.Random.Next(2);
 

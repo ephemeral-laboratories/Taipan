@@ -1,5 +1,4 @@
-﻿using System;
-using Source.View;
+﻿using Source.View;
 
 namespace Source.Model.PortActions
 {
@@ -14,7 +13,7 @@ namespace Source.Model.PortActions
                 return;
             }
 
-            foreach (CargoType type in Enum.GetValues(typeof(CargoType)))
+            foreach (CargoType type in typeof(CargoType).GetEnumValues())
             {
                 if (state.Ship.HasStored(type))
                 {

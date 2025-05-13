@@ -2,12 +2,13 @@
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class LiYuenHasSentLieutenantEvent: IPortArrivalEvent
+    public class LiYuenHasSentLieutenantEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
+        protected override bool ShouldRun(GameState state) =>
+            state.Ship.Port != Port.HongKong && state.LiYuensTrust == 0 && state.Random.Next(4) > 0;
+
+        protected override void Run(GameState state, IView view)
         {
-            if (state.Ship.Port == Port.HongKong || state.LiYuensTrust != 0 || state.Random.Next(4) == 0) return;
-            
             view.ShowTitle(Strings.CompradorsReport);
             view.ShowDetail(Strings.LiYuenHasSentALieutenant);
 

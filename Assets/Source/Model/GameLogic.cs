@@ -32,63 +32,65 @@ namespace Source.Model
             return state;
         }
 
+        private static readonly List<BasePortArrivalEvent> PortArrivalEvents =
+        [
+            new LiYuenExtortionEvent(),
+            new McHenrysShipRepairsEvent(),
+            new ElderBrotherWuDebtCollectionEvent(),
+            new ElderBrotherWuDealEvent(),
+            new OfferShipUpgradeEvent(),
+            new OpiumSeizedEvent(),
+            new WarehouseTheftEvent(),
+            new LiYuensTrustEvent(),
+            new LiYuenHasSentLieutenantEvent(),
+            new GoodPricesEvent(),
+            new RobbedEvent()
+        ];
+
+        private static readonly Dictionary<PortActivity, IPortAction> PortActions = new()
+        {
+            { PortActivity.Buy, new BuyAction() },
+            { PortActivity.Sell, new SellAction() },
+            { PortActivity.VisitBank, new VisitBankAction() },
+            { PortActivity.TransferCargo, new TransferCargoAction() },
+            { PortActivity.Retire, new RetireAction() }
+        };
+        
         private static void MainLoop(GameState state)
         {
-            var portArrivalEvents = new List<IPortArrivalEvent>
-            {
-                new LiYuenExtortionEvent(),
-                new McHenrysShipRepairsEvent(),
-                new ElderBrotherWuDebtCollectionEvent(),
-                new ElderBrotherWuDealEvent(),
-                new OfferShipUpgradeEvent(),
-                new OpiumSeizedEvent(),
-                new WarehouseTheftEvent(),
-                new LiYuensTrustEvent(),
-                new LiYuenHasSentLieutenantEvent(),
-                new GoodPricesEvent(),
-                new RobbedEvent()
-            };
-            var portActions = new Dictionary<PortActivity, IPortAction>
-            {
-                { PortActivity.Buy, new BuyAction() },
-                { PortActivity.Sell, new SellAction() },
-                { PortActivity.VisitBank, new VisitBankAction() },
-                { PortActivity.TransferCargo, new TransferCargoAction() },
-                { PortActivity.Retire, new RetireAction() }
-            };
-            
-            while (true)
+            while (state.RunGameLoop)
             {
                 UpdatePortStatistics(state);
 
-                foreach (var portArrivalEvent in portArrivalEvents)
+                foreach (var portArrivalEvent in PortArrivalEvents)
                 {
-                    portArrivalEvent.Run(state, View);
+                    portArrivalEvent.MaybeRun(state, View);
                 }
 
+                // This loop repeats until the player quits trading and is not overloaded.
                 while (true)
                 {
-                    while (true)
+                    var choice = PortChoices(state);
+                    if (choice == PortActivity.QuitTrading)
                     {
-                        var choice = PortChoices(state);
-                        if (choice == PortActivity.QuitTrading)
+                        if (state.Ship.IsOverloaded)
                         {
-                            break;
+                            Overload(state);
+                            continue;
                         }
 
-                        portActions[choice].Run(state, View);
-
-                        UpdatePortStatistics(state);
-                    }
-
-                    if (!state.Ship.IsOverloaded)
-                    {
-                        QuitTrading(state);
                         break;
                     }
 
-                    Overload(state);
+                    PortActions[choice].Run(state, View);
+
+                    UpdatePortStatistics(state);
                 }
+
+                // It would be nicer if we could somehow refactor QuitTrading
+                // to be just another action, but it currently also contains the
+                // at-sea logic.
+                QuitTrading(state);
             }
         }
 
@@ -126,7 +128,7 @@ namespace Source.Model
                     }
                 },
                 {
-                    Port.ShangHai, new Dictionary<CargoType, int>
+                    Port.Shanghai, new Dictionary<CargoType, int>
                     {
                         { CargoType.Opium, 16 }, { CargoType.Silk, 14 }, { CargoType.Arms, 16 },
                         { CargoType.General, 11 }
@@ -170,7 +172,7 @@ namespace Source.Model
             };
 
             var basePrices = basePriceByPort[state.Ship.Port];
-            foreach (CargoType type in Enum.GetValues(typeof(CargoType)))
+            foreach (CargoType type in typeof(CargoType).GetEnumValues())
             {
                 state.Prices[type] = Money.Of(basePrices[type]) / 2 * (state.Random.Next(3) + 1) * basePriceMultiplier[type];
             }
@@ -184,7 +186,7 @@ namespace Source.Model
 
             View.ShowPortStatsScreen();
 
-            foreach (CargoType type in Enum.GetValues(typeof(CargoType)))
+            foreach (CargoType type in typeof(CargoType).GetEnumValues())
             {
                 View.ShowWarehouseCargoQuantity(type, state.HongKongWarehouse.UnitsStored(type));
             }
@@ -198,7 +200,7 @@ namespace Source.Model
                 View.ShowShipAvailable(state.Ship.Available);
             }
 
-            foreach (CargoType type in Enum.GetValues(typeof(CargoType)))
+            foreach (CargoType type in typeof(CargoType).GetEnumValues())
             {
                 View.ShowShipCargoQuantity(type, state.Ship.UnitsStored(type));
             }
@@ -225,7 +227,7 @@ namespace Source.Model
             View.ShowDetail(
                 "Taipan, present prices per unit here are\n   Opium:          Silk:\n   Arms:           General:\n");
 
-            foreach (CargoType type in Enum.GetValues(typeof(CargoType)))
+            foreach (CargoType type in typeof(CargoType).GetEnumValues())
             {
                 View.ShowPrice(type, state.Prices[type]);
             }
@@ -256,13 +258,16 @@ namespace Source.Model
                     break;
                 }
             }
-
+            
+            AtSea(state);
+        }
+        
+        private static void AtSea(GameState state)
+        {
             View.ShowPort(Port.AtSea);
             View.ShowTitle(Strings.CaptainsReport);
 
-            Money booty;
-
-            var battleResult = RunNormalBattleEvent(state, out booty);
+            var battleResult = RunNormalBattleEvent(state, out var booty);
 
             battleResult = RunLiYuenBattleEvent(state, battleResult, ref booty);
 
@@ -290,6 +295,7 @@ namespace Source.Model
                         View.ShowDetail(Strings.TheBuggersGotUs);
                         SkippableDelay(state, 5);
                         GameOver(state);
+                        state.RunGameLoop = false;
                         return;
                 }
 
@@ -371,7 +377,9 @@ namespace Source.Model
                 View.ShowDetail(Strings.IThinkWereGoingDown);
                 SkippableDelay(state, 3);
 
-                if (state.Ship.Damage / state.Ship.Capacity * 3 * state.Random.NextDouble() >= 1)
+                // Compared with original logic again, seems to match.
+                // ReSharper disable once PossibleLossOfFraction
+                if (state.Ship.Damage / state.Ship.Capacity * 3.0 * state.Random.NextDouble() >= 1.0)
                 {
                     View.ShowDetail(Strings.WereGoingDown);
                     SkippableDelay(state, 5);
@@ -523,12 +531,12 @@ namespace Source.Model
                                 View.HideMoreShipsIndicator();
                             }
 
-                            var targeted = LorchaPosition.All[state.Random.Next(10)];
-                            while (shipsOnScreen[targeted] == null)
+                            // Yikes, bit of an expensive way to choose but OK
+                            LorchaPosition targeted;
+                            do
                             {
-                                // Yikes, bit of an expensive way to choose but OK
-                                targeted = LorchaPosition.All[state.Random.Next(10)];
-                            }
+                                targeted = LorchaPosition.All[state.Random.Next(LorchaPosition.All.Count)];
+                            } while (shipsOnScreen[targeted] == null);
 
                             View.DrawBlast(targeted);
                             Thread.Sleep(100);
@@ -597,15 +605,14 @@ namespace Source.Model
                             {
                                 foreach (var position in LorchaPosition.AllBackwards)
                                 {
-                                    if (numOnScreen > numShips && shipsOnScreen[position] != null)
-                                    {
-                                        shipsOnScreen[position] = null;
-                                        numOnScreen--;
+                                    if (numOnScreen <= numShips || shipsOnScreen[position] == null) continue;
 
-                                        View.ClearLorcha(position);
+                                    shipsOnScreen[position] = null;
+                                    numOnScreen--;
 
-                                        Thread.Sleep(100);
-                                    }
+                                    View.ClearLorcha(position);
+
+                                    Thread.Sleep(100);
                                 }
 
                                 if (numShips == numOnScreen)
@@ -688,7 +695,7 @@ namespace Source.Model
                     }
                 }
 
-                if (orders == Orders.Run || orders == Orders.ThrowCargo)
+                if (orders is Orders.Run or Orders.ThrowCargo)
                 {
                     if (orders == Orders.Run)
                     {
@@ -720,14 +727,13 @@ namespace Source.Model
                             {
                                 foreach (var position in LorchaPosition.AllBackwards)
                                 {
-                                    if (numOnScreen > numShips && shipsOnScreen[position] != null)
-                                    {
-                                        shipsOnScreen[position] = null;
-                                        numOnScreen--;
+                                    if (numOnScreen <= numShips || shipsOnScreen[position] == null) continue;
 
-                                        View.ClearLorcha(position);
-                                        Thread.Sleep(100);
-                                    }
+                                    shipsOnScreen[position] = null;
+                                    numOnScreen--;
+
+                                    View.ClearLorcha(position);
+                                    Thread.Sleep(100);
                                 }
 
                                 if (numShips == numOnScreen)
@@ -813,23 +819,6 @@ namespace Source.Model
 
         private static void FightStats(GameState state, int ships, Orders orders)
         {
-            string ordersDescription;
-            switch (orders)
-            {
-                case Orders.Fight:
-                    ordersDescription = Strings.Orders_Fight;
-                    break;
-                case Orders.Run:
-                    ordersDescription = Strings.Orders_Run;
-                    break;
-                case Orders.ThrowCargo:
-                    ordersDescription = Strings.Orders_ThrowCargo;
-                    break;
-                default:
-                    ordersDescription = "";
-                    break;
-            }
-
             View.ShowShipCount(ships);
 
             // TODO: Big .NET problem with internationalisation of plural forms. Can ICU help here?
@@ -837,7 +826,7 @@ namespace Source.Model
                 ? string.Format(Strings.ShipsAttacking_One, ships)
                 : string.Format(Strings.ShipsAttacking_Other, ships));
 
-            View.ShowCurrentOrders(string.Format(Strings.YourOrdersAreTo, ordersDescription));
+            View.ShowCurrentOrders(string.Format(Strings.YourOrdersAreTo, orders.LocalizedName()));
             View.ShowShipGuns(state.Ship.Guns);
         }
 

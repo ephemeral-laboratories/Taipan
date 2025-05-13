@@ -2,14 +2,14 @@
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class OpiumSeizedEvent: IPortArrivalEvent
+    public class OpiumSeizedEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
-        {
-            if (state.Ship.Port == Port.HongKong || state.Random.Next(18) != 0 ||
-                !state.Ship.HasStored(CargoType.Opium))
-                return;
+        protected override bool ShouldRun(GameState state) =>
+            state.Ship.Port != Port.HongKong && state.Random.Next(18) == 0 &&
+            state.Ship.HasStored(CargoType.Opium);
 
+        protected override void Run(GameState state, IView view)
+        {
             var fine = state.Cash / 1.8 * state.Random.NextDouble() + 1;
 
             state.Ship.RemoveCargo(CargoType.Opium, state.Ship.UnitsStored(CargoType.Opium));

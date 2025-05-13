@@ -2,12 +2,13 @@
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class RobbedEvent: IPortArrivalEvent
+    public class RobbedEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
+        protected override bool ShouldRun(GameState state) =>
+            state.Cash > 25000 && state.Random.Next(20) == 0;
+
+        protected override void Run(GameState state, IView view)
         {
-            if (state.Cash <= 25000 || state.Random.Next(20) != 0) return;
-            
             var robbed = state.Cash / 1.4 * state.Random.NextDouble();
 
             state.Cash -= robbed;
@@ -18,6 +19,5 @@ namespace Source.Model.PortArrivalEvents
 
             GameLogic.SkippableDelay(state, 5);
         }
-
     }
 }

@@ -5,7 +5,7 @@ namespace Source.Model
 {
     public class Money: IComparable<Money>
     {
-        public static Money Zero = new Money(0);
+        public static readonly Money Zero = new Money(0);
 
         public long Amount { get; }
 
@@ -25,12 +25,12 @@ namespace Source.Model
             return Amount.ToString();
         }
 
-        public static Money operator +(Money a, Money b) => new Money(a.Amount + b.Amount);
-        public static Money operator +(Money a, long b) => new Money(a.Amount + b);
-        public static Money operator -(Money a, Money b) => new Money(a.Amount - b.Amount);
-        public static Money operator -(Money a, long b) => new Money(a.Amount - b);
-        public static Money operator *(Money a, double b) => new Money((long) (a.Amount * b));
-        public static Money operator /(Money a, double b) => new Money((long) (a.Amount / b));
+        public static Money operator +(Money a, Money b) => new(a.Amount + b.Amount);
+        public static Money operator +(Money a, long b) => new(a.Amount + b);
+        public static Money operator -(Money a, Money b) => new(a.Amount - b.Amount);
+        public static Money operator -(Money a, long b) => new(a.Amount - b);
+        public static Money operator *(Money a, double b) => new((long) (a.Amount * b));
+        public static Money operator /(Money a, double b) => new((long) (a.Amount / b));
         public static long operator /(Money a, Money b) => a.Amount / b.Amount;
 
         public static bool operator <(Money a, Money b) => a.Amount < b.Amount;

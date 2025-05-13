@@ -2,12 +2,13 @@
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class McHenrysShipRepairsEvent: IPortArrivalEvent
+    public class McHenrysShipRepairsEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
+        protected override bool ShouldRun(GameState state) =>
+            state.Ship.Port == Port.HongKong && state.Ship.Damage > 0;
+
+        protected override void Run(GameState state, IView view)
         {
-            if (state.Ship.Port != Port.HongKong || state.Ship.Damage <= 0) return;
-            
             view.ShowTitle(Strings.CompradorsReport);
             view.ShowDetail(Strings.McHenryHasArrived);
 

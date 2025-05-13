@@ -1,5 +1,4 @@
-﻿using System;
-using Source.View;
+﻿using Source.View;
 
 namespace Source.Model.PortActions
 {

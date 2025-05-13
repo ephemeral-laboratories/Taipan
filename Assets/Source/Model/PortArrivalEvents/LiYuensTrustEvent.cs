@@ -2,12 +2,12 @@
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class LiYuensTrustEvent: IPortArrivalEvent
+    public class LiYuensTrustEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
+        protected override bool ShouldRun(GameState state) => state.Random.Next(20) == 0;
+
+        protected override void Run(GameState state, IView view)
         {
-            if (state.Random.Next(20) != 0) return;
-            
             if (state.LiYuensTrust > 0)
             {
                 state.LiYuensTrust++;

@@ -8,7 +8,7 @@ namespace Source.Model
     {
         public int Capacity { get; set; }
 
-        private readonly Dictionary<CargoType, int> _storage = new Dictionary<CargoType, int>();
+        private readonly Dictionary<CargoType, int> _storage = new();
         
         public int TotalUnitsStored
         {

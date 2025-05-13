@@ -1,15 +1,15 @@
-﻿using System;
-using Source.View;
+﻿using Source.View;
 
 namespace Source.Model.PortArrivalEvents
 {
-    public class WarehouseTheftEvent: IPortArrivalEvent
+    public class WarehouseTheftEvent: BasePortArrivalEvent
     {
-        public void Run(GameState state, IView view)
+        protected override bool ShouldRun(GameState state) =>
+            state.Random.Next(50) == 0 && state.HongKongWarehouse.IsNotEmpty;
+
+        protected override void Run(GameState state, IView view)
         {
-            if (state.Random.Next(50) != 0 || !state.HongKongWarehouse.IsNotEmpty) return;
-            
-            foreach (CargoType type in Enum.GetValues(typeof(CargoType)))
+            foreach (CargoType type in typeof(CargoType).GetEnumValues())
             {
                 var available = state.HongKongWarehouse.UnitsStored(type);
                 var plundered = (int)(available * (0.8 / 1.8) * state.Random.NextDouble());
